@@ -1,0 +1,498 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ForgeFrame Media Industrial Theme */
+  --background: oklch(0.12 0 0); /* Deep black/charcoal */
+  --foreground: oklch(1.0 0 0); /* Bright white text */
+  --card: oklch(0.18 0 0); /* Dark charcoal card */
+  --card-foreground: oklch(1.0 0 0);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(1.0 0 0);
+  --primary: oklch(0.68 0.18 45); /* Forge orange #ff7a2f */
+  --primary-foreground: oklch(0.12 0 0); /* Dark text on orange */
+  --secondary: oklch(0.25 0 0); /* Medium charcoal */
+  --secondary-foreground: oklch(1.0 0 0);
+  --muted: oklch(0.22 0 0); /* Muted dark gray */
+  --muted-foreground: oklch(0.85 0 0); /* Brighter muted text */
+  --accent: oklch(0.68 0.18 45); /* Forge orange accent */
+  --accent-foreground: oklch(0.12 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.28 0 0); /* Subtle border */
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.68 0.18 45); /* Orange focus ring */
+  --chart-1: oklch(0.68 0.18 45);
+  --chart-2: oklch(0.55 0 0);
+  --chart-3: oklch(0.35 0 0);
+  --chart-4: oklch(0.75 0.15 40);
+  --chart-5: oklch(0.45 0 0);
+  --radius: 0.375rem;
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.68 0.18 45);
+  --sidebar-primary-foreground: oklch(0.12 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.28 0 0);
+  --sidebar-ring: oklch(0.68 0.18 45);
+}
+
+.dark {
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(1.0 0 0); /* Updated to bright white for dark mode as well */
+  --card: oklch(0.18 0 0);
+  --card-foreground: oklch(1.0 0 0);
+  --popover: oklch(0.16 0 0);
+  --popover-foreground: oklch(1.0 0 0);
+  --primary: oklch(0.68 0.18 45);
+  --primary-foreground: oklch(0.12 0 0);
+  --secondary: oklch(0.25 0 0);
+  --secondary-foreground: oklch(1.0 0 0);
+  --muted: oklch(0.22 0 0);
+  --muted-foreground: oklch(0.85 0 0);
+  --accent: oklch(0.68 0.18 45);
+  --accent-foreground: oklch(0.12 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.95 0 0);
+  --border: oklch(0.28 0 0);
+  --input: oklch(0.25 0 0);
+  --ring: oklch(0.68 0.18 45);
+  --chart-1: oklch(0.68 0.18 45);
+  --chart-2: oklch(0.55 0 0);
+  --chart-3: oklch(0.35 0 0);
+  --chart-4: oklch(0.75 0.15 40);
+  --chart-5: oklch(0.45 0 0);
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.68 0.18 45);
+  --sidebar-primary-foreground: oklch(0.12 0 0);
+  --sidebar-accent: oklch(0.22 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(0.28 0 0);
+  --sidebar-ring: oklch(0.68 0.18 45);
+}
+
+/* Completely rewrote utility classes without @apply to fix parsing errors */
+/* Added new utility classes for lively interactions and gradients */
+.text-gradient {
+  background: linear-gradient(to right, oklch(0.68 0.18 45), #fb923c, oklch(0.68 0.18 45));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.card-hover-effect {
+  transition: all 0.3s ease;
+  border-color: transparent;
+}
+
+.card-hover-effect:hover {
+  border-color: rgba(255, 122, 47, 0.5);
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0 30px rgba(255, 122, 47, 0.15);
+}
+
+.section-gradient {
+  background: radial-gradient(ellipse at center, rgba(255, 122, 47, 0.05), oklch(0.12 0 0), oklch(0.12 0 0));
+}
+
+@theme inline {
+  --font-sans: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+  /* Switched heading font to Montserrat for a more premium, solid, less "funky" look */
+  --font-heading: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom heading font */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* Enhanced metal texture overlay with more depth and realism */
+.metal-texture {
+  position: relative;
+  /* Adding dark forged metal background with noise and vignette */
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.7) 100%),
+    linear-gradient(180deg, rgba(20, 20, 20, 1) 0%, rgba(10, 10, 10, 1) 100%);
+}
+
+.metal-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Enhanced metal grain texture for forged steel look */
+  background-image: repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 1px,
+      rgba(255, 255, 255, 0.02) 1px,
+      rgba(255, 255, 255, 0.02) 2px
+    ), repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0, 0, 0, 0.3) 1px, rgba(0, 0, 0, 0.3) 2px);
+  background-size: 2px 2px;
+  pointer-events: none;
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+}
+
+.metal-texture::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Strong vignette for depth and focus */
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+
+/* Added a subtle animated background for sections to make them feel "live" */
+.live-gradient-bg {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 122, 47, 0.03) 0%, transparent 50%);
+  background-size: 100% 100%;
+  animation: pulse-glow 8s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Replacing image-based logo with CSS-recreated metallic text logo */
+/* ForgeFrame Media logo with metallic texture and animated backlight glow */
+.forgeframe-logo-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  /* Added perspective for 3D feel of sparks */
+  perspective: 1000px;
+}
+
+.forgeframe-logo {
+  position: relative;
+  z-index: 10;
+  font-family: var(--font-heading);
+  /* Adjusted font size for better mobile fit */
+  font-size: clamp(2.5rem, 9vw, 8rem);
+  font-weight: 900; /* Black weight for maximum solidity */
+  letter-spacing: -0.02em; /* Tighter tracking for premium feel */
+  text-transform: uppercase;
+  line-height: 0.9;
+  text-align: center;
+  white-space: nowrap;
+
+  /* Updated to a solid, premium textured steel look with 3D depth */
+  color: #e0e0e0; /* Fallback */
+  background: linear-gradient(to bottom, #ffffff 0%, #d0d0d0 45%, #707070 50%, #a0a0a0 60%, #e0e0e0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  /* Heavy industrial 3D bevel effect */
+  text-shadow: 0 1px 0 #999, 0 2px 0 #888, 0 3px 0 #777, 0 4px 0 #666, 0 5px 0 #555, 0 6px 0 #444, 0 0 30px
+    rgba(255, 122, 47, 0.2); /* Subtle orange ambient glow */
+
+  /* Removed the filter: drop-shadow which was causing blurriness */
+  /* filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.8)); */
+}
+
+/* Mobile specific adjustments for the logo */
+@media (max-width: 768px) {
+  .forgeframe-logo {
+    white-space: normal;
+    word-break: break-word;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 0.9;
+    /* Slightly reduced font size on mobile to ensure it fits */
+    font-size: clamp(2.5rem, 12vw, 4.5rem);
+  }
+
+  .forgeframe-logo span.break-mobile {
+    display: block;
+  }
+}
+
+/* The "MEDIA" text */
+.forgeframe-logo-media {
+  display: block;
+  font-size: 0.25em;
+  letter-spacing: 0.8em; /* Wider spacing for premium look */
+  margin-top: 0.5em;
+  font-weight: 700;
+  color: #fff;
+  /* Steel look for MEDIA too, but lighter */
+  background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  opacity: 0.9;
+}
+
+/* Replaced welding sparks with realistic fire embers */
+.fire-embers {
+  position: absolute;
+  inset: -50%;
+  pointer-events: none;
+  z-index: 5;
+  overflow: visible;
+}
+
+.fire-ember {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #ff7a2f;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff4500, 0 0 20px #ff7a2f;
+  opacity: 0;
+  bottom: 0;
+}
+
+/* Ember animations - drifting upwards with fade */
+.fire-ember:nth-child(1) {
+  left: 45%;
+  animation: ember-rise-1 4s infinite;
+}
+.fire-ember:nth-child(2) {
+  left: 55%;
+  animation: ember-rise-2 5s infinite 0.5s;
+}
+.fire-ember:nth-child(3) {
+  left: 48%;
+  animation: ember-rise-3 3.5s infinite 1s;
+}
+.fire-ember:nth-child(4) {
+  left: 52%;
+  animation: ember-rise-1 4.5s infinite 1.5s;
+}
+.fire-ember:nth-child(5) {
+  left: 40%;
+  animation: ember-rise-2 6s infinite 2s;
+}
+.fire-ember:nth-child(6) {
+  left: 60%;
+  animation: ember-rise-3 5.5s infinite 2.5s;
+}
+.fire-ember:nth-child(7) {
+  left: 35%;
+  animation: ember-rise-1 4s infinite 1.2s;
+}
+.fire-ember:nth-child(8) {
+  left: 65%;
+  animation: ember-rise-2 4.8s infinite 0.8s;
+}
+.fire-ember:nth-child(9) {
+  left: 42%;
+  animation: ember-rise-3 3.8s infinite 3s;
+}
+.fire-ember:nth-child(10) {
+  left: 58%;
+  animation: ember-rise-1 5.2s infinite 1.8s;
+}
+
+@keyframes ember-rise-1 {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-200px) translateX(-20px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) translateX(-40px) scale(0);
+  }
+}
+
+@keyframes ember-rise-2 {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-200px) translateX(20px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) translateX(40px) scale(0);
+  }
+}
+
+@keyframes ember-rise-3 {
+  0% {
+    opacity: 0;
+    transform: translateY(100px) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(-200px) translateX(0px) scale(0.8);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-300px) translateX(10px) scale(0);
+  }
+}
+
+/* Premium border gradient effect */
+.border-gradient {
+  position: relative;
+  border: none;
+}
+
+.border-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(255, 122, 47, 0.5), transparent, rgba(255, 122, 47, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============ ForgeFrame elite effects (added) ============ */
+@layer utilities { .font-display { font-family: var(--font-bebas), system-ui, sans-serif; } }
+@keyframes ff-float-a {0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(7%,10%) scale(1.18)}}
+@keyframes ff-float-b {0%,100%{transform:translate(0,0) scale(1.05)}50%{transform:translate(-9%,-7%) scale(.92)}}
+@keyframes ff-marquee {from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes ff-shine {0%{background-position:200% 0}100%{background-position:-200% 0}}
+.ff-blob{position:absolute;border-radius:9999px;filter:blur(64px);opacity:.5;will-change:transform;pointer-events:none}
+.ff-blob.a{animation:ff-float-a 14s ease-in-out infinite}
+.ff-blob.b{animation:ff-float-b 18s ease-in-out infinite}
+.ff-glass{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.015));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08)}
+.ff-nav-float{background:linear-gradient(180deg,rgba(18,18,20,.82),rgba(10,10,12,.72));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 12px 40px -12px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.06),inset 0 1px 0 rgba(255,255,255,.08)}
+.ff-text-glow{text-shadow:0 0 28px rgba(255,122,47,.45)}
+.ff-hero .ff-blob{opacity:.22}
+.ff-hero #ff-gl{opacity:.55!important}
+.ff-hero-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 85% 75% at 50% 38%,rgba(8,8,10,.88) 0%,rgba(8,8,10,.55) 42%,transparent 72%)}
+.ff-hero-accent{color:#fff;text-shadow:0 0 28px rgba(255,122,47,.95),0 0 56px rgba(255,122,47,.45),0 2px 18px rgba(0,0,0,.95),0 0 2px rgba(0,0,0,.9)}
+.ff-glow{box-shadow:0 0 45px -10px rgba(255,122,47,.6)}
+.ff-card{transition:transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s,border-color .35s}
+.ff-card:hover{transform:translateY(-6px);border-color:rgba(255,122,47,.5);box-shadow:0 24px 60px -24px rgba(255,122,47,.35)}
+.ff-marquee{display:flex;width:max-content;animation:ff-marquee 30s linear infinite}
+.ff-shine{background-image:linear-gradient(110deg,#ff7a2f,#ffb07a 25%,#ff7a2f 50%);background-size:200% 100%;animation:ff-shine 4s linear infinite}
+.ff-phone{border-radius:2.2rem;border:7px solid #141414;background:#000;box-shadow:0 40px 90px -25px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.06);overflow:hidden}
+@media (prefers-reduced-motion: no-preference){ @supports (animation-timeline: view()){
+  @keyframes ff-reveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+  .ff-reveal{animation:ff-reveal both;animation-timeline:view();animation-range:entry 0% cover 30%}
+}}
+
+/* ============ ForgeFrame "crazy cool" effects v2 ============ */
+@property --ff-a { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes ff-spin { to { --ff-a: 360deg; } }
+
+/* scroll progress bar */
+.ff-progress-wrap{position:fixed;top:0;left:0;right:0;height:3px;z-index:60;pointer-events:none}
+.ff-progress{height:100%;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#ff7a2f,#ffb07a);box-shadow:0 0 12px rgba(255,122,47,.8)}
+
+/* cursor spotlight */
+.ff-spotlight{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(420px circle at var(--mx,-200px) var(--my,-200px),rgba(255,122,47,.10),transparent 62%)}
+
+/* film grain */
+.ff-grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.045;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px}
+
+/* rotating gradient border on featured plan */
+.ff-halo::before{content:"";position:absolute;inset:0;border-radius:1rem;padding:1.6px;
+  background:conic-gradient(from var(--ff-a), transparent 0deg, #ff7a2f 55deg, #ffd0ad 80deg, transparent 150deg, transparent 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor; mask-composite:exclude; animation:ff-spin 6s linear infinite; pointer-events:none}
+
+/* marquee niche band */
+.ff-marquee > * { padding-right:2.5rem }
+
+/* ============ ForgeFrame interactive v3 ============ */
+#ff-particles{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.ff-cursor{position:fixed;top:0;left:0;width:30px;height:30px;border-radius:50%;z-index:60;pointer-events:none;mix-blend-mode:screen;background:radial-gradient(circle,rgba(255,140,70,.9),rgba(255,140,70,0) 70%);filter:blur(2px);will-change:transform}
+.ff-spotlight{background:radial-gradient(460px circle at var(--mx,-300px) var(--my,-300px),rgba(255,122,47,.16),transparent 60%)}
+
+/* ============ ForgeFrame wow v4 ============ */
+#ff-gl{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity .8s ease}
+[data-tilt]{position:relative}
+[data-tilt]::after{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(240px circle at var(--gx,50%) var(--gy,50%),rgba(255,255,255,.16),transparent 55%);opacity:0;transition:opacity .35s;pointer-events:none;z-index:3}
+[data-tilt]:hover::after{opacity:1}
+[data-word]{display:inline-block;padding-inline:.1em;overflow:visible}
+
+/* ============ ForgeFrame mobile effects v5 ============ */
+@property --gx { syntax: "<percentage>"; inherits: false; initial-value: 50%; }
+@property --gy { syntax: "<percentage>"; inherits: false; initial-value: 50%; }
+.ff-ripple{position:fixed;width:16px;height:16px;border-radius:50%;background:radial-gradient(circle,rgba(255,122,47,.55),transparent 70%);transform:translate(-50%,-50%) scale(0);pointer-events:none;z-index:58;animation:ff-rip .7s ease-out forwards}
+@keyframes ff-rip{to{transform:translate(-50%,-50%) scale(22);opacity:0}}
+@keyframes ff-sweep{0%{--gx:-15%;opacity:0}12%{opacity:1}100%{--gx:120%;opacity:0}}
+.ff-swept::after{animation:ff-sweep 1.2s ease forwards}
