@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Instagram, Zap, Flame, Video, Sparkles, ArrowRight, Phone, Star } from "lucide-react"
+import { Instagram, Check, Zap, Flame, Video, Sparkles, ArrowRight, Phone, Star } from "lucide-react"
 import { SiteEffects } from "@/components/site-effects"
 
 const SHOWCASE = [
@@ -18,6 +18,15 @@ const STEPS = [
   { n: "01", t: "Quick onboarding", d: "Send a few photos and a 30-second voice clip. That's all we ever need from you." },
   { n: "02", t: "We produce your batch", d: "Our AI studio generates a month of scroll-stopping videos in your voice, on-brand." },
   { n: "03", t: "We post daily, everywhere", d: "Consistent presence across every platform. You get the views, the calls, the customers." },
+]
+
+const PLANS = [
+  { name: "STARTER", price: "999", blurb: "Stay top-of-mind with a steady presence.", videos: "12 reels / month",
+    features: ["Posted to Facebook & Instagram", "Professional editing", "Content strategy", "Captions & hashtags"], featured: false },
+  { name: "GROWTH", price: "1,499", blurb: "Grow your audience aggressively.", videos: "20 reels / month",
+    features: ["Everything in Starter", "Posted to every platform", "Monthly strategy call", "Trending-audio matching"], featured: true },
+  { name: "DOMINATE", price: "1,999", blurb: "Own your local market, period.", videos: "30 reels / month",
+    features: ["Everything in Growth", "AI talking-head videos", "Priority support", "Lead-funnel landing page"], featured: false },
 ]
 
 const PROOF = [
@@ -150,6 +159,40 @@ export default function Home() {
                 <span className="font-display text-5xl text-[#ff7a2f]/40">{s.n}</span>
                 <h3 className="mt-2 font-display italic text-2xl">{s.t}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-white/65">{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PRICING */}
+      <section id="pricing" className="relative py-16 md:py-24">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="ff-reveal text-center mb-12">
+            <h2 className="font-display italic text-5xl md:text-7xl">SIMPLE <span className="text-[#ff7a2f]">PRICING</span></h2>
+            <p className="mt-3 text-white/60">Month-to-month. Cancel anytime.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
+            {PLANS.map((p) => (
+              <div key={p.name} className={`ff-reveal ff-card relative rounded-2xl p-7 ff-glass ${p.featured ? "ff-halo border-[#ff7a2f]/50 ff-glow md:-translate-y-3" : ""}`}>
+                {p.featured && <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#ff7a2f] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-black">Most Popular</span>}
+                <h3 className="font-display italic text-3xl">{p.name}</h3>
+                <p className="mt-1 text-sm text-white/55">{p.blurb}</p>
+                <div className="mt-5 flex items-end gap-1">
+                  <span className="font-display text-6xl text-[#ff7a2f]">${p.price}</span>
+                  <span className="mb-2 text-sm text-white/50">/mo</span>
+                </div>
+                <p className="mt-1 text-sm font-bold">{p.videos}</p>
+                <ul className="mt-6 space-y-2.5">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-sm text-white/75">
+                      <Check className="mt-0.5 h-4 w-4 flex-none text-[#ff7a2f]" /> {f}
+                    </li>
+                  ))}
+                </ul>
+                <Link href="#contact" className={`mt-7 block rounded-full py-3 text-center font-bold transition ${p.featured ? "bg-[#ff7a2f] text-black ff-glow hover:brightness-110" : "ff-glass text-white hover:border-white/30"}`}>
+                  Choose {p.name.charAt(0) + p.name.slice(1).toLowerCase()}
+                </Link>
               </div>
             ))}
           </div>
