@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "ForgeFrame Media | Social Media Marketing for Trades",
   description:
-    "We handle social media for HVAC, electricians, plumbers, and mechanics. You film, we edit and post. Packages start at $749/mo.",
+    "AI-powered short-form video for local businesses. We script, produce, and post scroll-stopping content to TikTok, Instagram, Facebook, and YouTube.",
   generator: "v0.app",
   icons: {
     icon: "/icon.svg",
