@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 import { APPLE_TOUCH_PNG_B64, decodeBase64, FAVICON_ICO_B64, FAVICON_PNG_B64 } from "@/lib/favicon-bytes"
-import { FAVICON_SVG } from "@/lib/favicon"
 
 const NO_CACHE = {
   "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
@@ -24,13 +23,7 @@ export function middleware(request: NextRequest) {
     })
   }
 
-  if (pathname === "/icon.svg" || pathname.endsWith(".svg")) {
-    return new NextResponse(FAVICON_SVG, {
-      headers: { ...NO_CACHE, "Content-Type": "image/svg+xml" },
-    })
-  }
-
-  if (pathname === "/icon.png" || pathname.endsWith("icon-32.png")) {
+  if (pathname === "/icon.png" || pathname === "/icon.svg") {
     return new NextResponse(decodeBase64(FAVICON_PNG_B64), {
       headers: { ...NO_CACHE, "Content-Type": "image/png" },
     })
@@ -40,5 +33,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/favicon.ico", "/apple-touch-icon.png", "/apple-touch-icon-precomposed.png", "/icon.svg", "/icon.png"],
+  matcher: ["/favicon.ico", "/apple-touch-icon.png", "/apple-touch-icon-precomposed.png", "/icon.png", "/icon.svg"],
 }

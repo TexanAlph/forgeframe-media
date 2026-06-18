@@ -2,7 +2,6 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Bebas_Neue, Montserrat } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { FAVICON_SVG_DATA_URI } from "@/lib/favicon"
 import "./globals.css"
 
 const bebasNeue = Bebas_Neue({
@@ -16,10 +15,30 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 })
 
+const siteUrl = "https://www.forgeframe.media"
+const siteDescription =
+  "AI-powered short-form video for local businesses. We script, produce, and post scroll-stopping content to TikTok, Instagram, Facebook, and YouTube."
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "ForgeFrame Media | Social Media Marketing for Trades",
-  description:
-    "AI-powered short-form video for local businesses. We script, produce, and post scroll-stopping content to TikTok, Instagram, Facebook, and YouTube.",
+  description: siteDescription,
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "ForgeFrame Media",
+    title: "ForgeFrame Media | Social Media Marketing for Trades",
+    description: siteDescription,
+  },
+  twitter: {
+    card: "summary",
+    title: "ForgeFrame Media | Social Media Marketing for Trades",
+    description: siteDescription,
+  },
+  appleWebApp: {
+    title: "ForgeFrame Media",
+  },
 }
 
 export default function RootLayout({
@@ -29,9 +48,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" type="image/svg+xml" href={FAVICON_SVG_DATA_URI} />
-      </head>
       <body className={`${bebasNeue.variable} ${montserrat.variable} font-sans antialiased`}>
         {children}
         <Analytics />
