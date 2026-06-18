@@ -19,11 +19,6 @@ export const metadata: Metadata = {
   title: "ForgeFrame Media | Social Media Marketing for Trades",
   description:
     "AI-powered short-form video for local businesses. We script, produce, and post scroll-stopping content to TikTok, Instagram, Facebook, and YouTube.",
-  generator: "v0.app",
-  icons: {
-    icon: "/icon.svg",
-    apple: "/icon.svg",
-  },
 }
 
 export default function RootLayout({
