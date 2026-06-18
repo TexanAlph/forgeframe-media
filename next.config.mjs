@@ -22,11 +22,11 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      { source: "/icon-light-32x32.png", destination: "/forgeframe-favicon.ico?v=3", permanent: false },
-      { source: "/icon-dark-32x32.png", destination: "/forgeframe-favicon.ico?v=3", permanent: false },
-      { source: "/apple-icon.png", destination: "/forgeframe-apple-touch.png?v=3", permanent: false },
-      { source: "/icon.png", destination: "/forgeframe-icon-32.png?v=3", permanent: false },
-      { source: "/icon.svg", destination: "/forgeframe-icon-48.png?v=3", permanent: false },
+      { source: "/icon-light-32x32.png", destination: "/forgeframe-favicon.ico?v=4", permanent: false },
+      { source: "/icon-dark-32x32.png", destination: "/forgeframe-favicon.ico?v=4", permanent: false },
+      { source: "/apple-icon.png", destination: "/forgeframe-apple-touch.png?v=4", permanent: false },
+      { source: "/icon.png", destination: "/forgeframe-icon-32.png?v=4", permanent: false },
+      { source: "/icon.svg", destination: "/forgeframe-icon-48.png?v=4", permanent: false },
     ]
   },
 }

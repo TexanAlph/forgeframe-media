@@ -15,18 +15,17 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 })
 
+const FAVICON_DATA_URI =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAc0lEQVR4nGP8////f4YBBEwDafmoA0ZDYDQERkNgUIQAC0EV9WYMDH9+YYrzCDMwVO4lXs3QDQEYqD3MwMDBy0CxmqEbAs22qPy0+QwM8oakqxm6IVA7TNMA04h3AONoo5Rh1AEDDJhGHcAw6oABBgPuAAA07xm9F/1fxAAAAABJRU5ErkJggg=="
+
 export const metadata: Metadata = {
   title: "ForgeFrame Media | Social Media Marketing for Trades",
   description:
     "AI-powered short-form video for local businesses. We script, produce, and post scroll-stopping content to TikTok, Instagram, Facebook, and YouTube.",
   icons: {
-    icon: [
-      { url: "/forgeframe-icon-32.png?v=3", sizes: "32x32", type: "image/png" },
-      { url: "/forgeframe-icon-48.png?v=3", sizes: "48x48", type: "image/png" },
-      { url: "/forgeframe-favicon.ico?v=3", sizes: "any", type: "image/x-icon" },
-    ],
-    shortcut: "/forgeframe-favicon.ico?v=3",
-    apple: "/forgeframe-apple-touch.png?v=3",
+    icon: [{ url: FAVICON_DATA_URI, sizes: "32x32", type: "image/png" }],
+    shortcut: FAVICON_DATA_URI,
+    apple: "/forgeframe-apple-touch.png?v=4",
   },
 }
 
