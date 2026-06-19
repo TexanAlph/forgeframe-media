@@ -23,6 +23,16 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "ForgeFrame Media | Social Media Marketing for Trades",
   description: siteDescription,
+  icons: {
+    icon: [
+      {
+        url: "/forgeframe-mark.svg?v=20260619",
+        type: "image/svg+xml",
+      },
+    ],
+    shortcut: "/forgeframe-mark.svg?v=20260619",
+    apple: "/apple-icon.png?v=20260619",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
