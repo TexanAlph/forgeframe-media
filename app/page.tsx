@@ -54,17 +54,17 @@ export default function Home() {
   return (
     <div className="relative min-h-screen">
       {/* NAV */}
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className={`${MAX} ${PX} flex items-center justify-between py-5`}>
-          <Link href="/" className="font-display text-2xl tracking-tight">
+      <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+        <div className="ff-nav mx-auto flex max-w-3xl items-center justify-between gap-4 rounded-full py-2 pl-5 pr-2 sm:py-2.5 sm:pl-7 sm:pr-2.5">
+          <Link href="/" className="font-display text-lg tracking-tight sm:text-xl">
             ForgeFrame<span className="amber"> Media</span>
           </Link>
-          <nav className="hidden items-center gap-9 text-sm t-dim sm:flex">
-            <Link href="#work" className="transition-colors hover:text-[var(--ink)]">Work</Link>
-            <Link href="#pricing" className="transition-colors hover:text-[var(--ink)]">Pricing</Link>
+          <nav className="hidden items-center gap-8 text-sm t-dim md:flex">
+            <Link href="#work" className="transition-colors hover:text-[color:var(--ink)]">Work</Link>
+            <Link href="#pricing" className="transition-colors hover:text-[color:var(--ink)]">Pricing</Link>
           </nav>
-          <Link href="#contact" className="ff-btn inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm">
-            Get a free reel <ArrowRight className="h-3.5 w-3.5" />
+          <Link href="#contact" className="ff-btn inline-flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm sm:gap-2 sm:px-5">
+            Free reel <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </header>
@@ -83,12 +83,13 @@ export default function Home() {
             <p className="reveal mt-7 max-w-lg text-[17px] leading-[1.65] t-dim">
               We produce scroll-stopping short-form video — talking-head, product, and hook-driven — built on what actually converts, then post it everywhere. You never touch a camera. You run your business. We make the phone ring.
             </p>
-            <div className="reveal mt-9 flex flex-col gap-3 sm:flex-row">
+            <div className="reveal mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link href="#contact" className="ff-btn inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px]">
                 Get a free sample reel <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="#work" className="ff-btn-ghost inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px]">
+              <Link href="#work" className="group inline-flex items-center gap-1.5 text-[15px] t-dim transition-colors hover:text-[color:var(--ink)]">
                 See the work
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
             <p className="reveal mt-4 text-[13px] t-faint">Free sample of your business · No camera · No contract</p>
