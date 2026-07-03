@@ -30,11 +30,11 @@ const STEPS = [
 ]
 
 const PLANS = [
-  { name: "STAY SEEN", price: "999", blurb: "Never disappear from the feed again.", videos: "12 reels / month",
+  { name: "STAY SEEN", price: "1,500", blurb: "Never disappear from the feed again.", videos: "12 reels / month",
     features: ["Posted to Facebook & Instagram", "Hook-first editing", "Content strategy for your offer", "Captions & hashtags"], featured: false },
-  { name: "GET BOOKED", price: "1,499", blurb: "Turn attention into booked jobs.", videos: "20 reels / month",
+  { name: "GET BOOKED", price: "2,900", blurb: "Turn attention into booked clients.", videos: "20 reels / month",
     features: ["Everything in Stay Seen", "Posted to every platform", "Monthly strategy call", "Trending-audio matching", "Your digital-twin talking-head"], featured: true },
-  { name: "OWN THE MARKET", price: "1,999", blurb: "Become the obvious choice in your city.", videos: "30 reels / month",
+  { name: "OWN THE MARKET", price: "4,500", blurb: "Become the obvious choice in your market.", videos: "30 reels / month",
     features: ["Everything in Get Booked", "Daily posting cadence", "Priority production", "Lead-funnel landing page"], featured: false },
 ]
 
@@ -277,6 +277,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <p className="ff-reveal mx-auto mt-8 max-w-2xl text-center text-sm leading-relaxed text-white/50">
+            Each plan starts with a one-time setup from <span className="text-white/80">$500</span> — we build your digital twin and dial in your content strategy. Running paid ads? Ad spend is billed separately at cost, never marked up.
+          </p>
         </div>
       </section>
 
