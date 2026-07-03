@@ -33,9 +33,9 @@ const PLANS = [
   { name: "STAY SEEN", price: "1,500", blurb: "Never disappear from the feed again.", videos: "12 reels / month",
     features: ["Posted to Facebook & Instagram", "Hook-first editing", "Content strategy for your offer", "Captions & hashtags"], featured: false },
   { name: "GET BOOKED", price: "2,900", blurb: "Turn attention into booked clients.", videos: "20 reels / month",
-    features: ["Everything in Stay Seen", "Posted to every platform", "Monthly strategy call", "Trending-audio matching", "Your digital-twin talking-head"], featured: true },
-  { name: "OWN THE MARKET", price: "4,500", blurb: "Become the obvious choice in your market.", videos: "30 reels / month",
-    features: ["Everything in Get Booked", "Daily posting cadence", "Priority production", "Lead-funnel landing page"], featured: false },
+    features: ["Everything in Stay Seen", "Posted to every platform", "Monthly strategy call", "Trending-audio matching", "Your digital-twin talking-head"], featured: false },
+  { name: "OWN THE MARKET", price: "3,500", blurb: "Become the obvious choice in your market.", videos: "30 reels / month",
+    features: ["Everything in Get Booked", "Daily posting cadence", "Priority production", "Lead-funnel landing page", "Best value — lowest cost per reel"], featured: true },
 ]
 
 const FAQS = [
@@ -256,7 +256,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-start">
             {PLANS.map((p) => (
               <div key={p.name} className={`ff-reveal ff-card relative rounded-2xl p-7 ff-glass ${p.featured ? "ff-halo border-[#ff7a2f]/50 ff-glow md:-translate-y-3" : ""}`}>
-                {p.featured && <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#ff7a2f] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-black">Most Popular</span>}
+                {p.featured && <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#ff7a2f] px-3 py-1 text-[10px] font-black uppercase tracking-widest text-black">Best Value</span>}
                 <h3 className="font-display italic text-3xl">{p.name}</h3>
                 <p className="mt-1 text-sm text-white/55">{p.blurb}</p>
                 <div className="mt-5 flex items-end gap-1">
