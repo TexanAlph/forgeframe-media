@@ -145,7 +145,7 @@ export default function Home() {
       <section className="bg-[#efe9dd] text-[#191510]">
         <div className={`${MAX} ${PX} py-24 md:py-36`}>
           <div className="grid gap-10 md:grid-cols-[.5fr_1.5fr] md:gap-16">
-            <p className="eyebrow reveal" style={{ color: "#8a7f6d" }}>The real problem</p>
+            <p className="eyebrow reveal" style={{ color: "#6b6152" }}>The real problem</p>
             <div className="reveal">
               <p className="font-display text-[clamp(1.9rem,4.4vw,3.4rem)] leading-[1.08]">
                 You&rsquo;re not losing to a better business. You&rsquo;re losing to the one that simply

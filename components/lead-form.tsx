@@ -59,23 +59,23 @@ export function LeadForm() {
     <form onSubmit={onSubmit} className="ff-glass rounded-2xl p-6 sm:p-8 text-left">
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/50">Name *</label>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Name *</label>
           <input name="name" required autoComplete="name" placeholder="Your name" className={inputClass} />
         </div>
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/50">Phone *</label>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Phone *</label>
           <input name="phone" required type="tel" autoComplete="tel" placeholder="(210) 555-0123" className={inputClass} />
         </div>
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/50">Business</label>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Business</label>
           <input name="business" placeholder="Business name & type" className={inputClass} />
         </div>
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/50">Instagram / website</label>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Instagram / website</label>
           <input name="handle" placeholder="@handle or yoursite.com" className={inputClass} />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/50">What do you want more of?</label>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">What do you want more of?</label>
           <textarea name="message" rows={3} placeholder="Calls, bookings, walk-ins… tell us the goal (optional)" className={inputClass} />
         </div>
       </div>
