@@ -6,9 +6,9 @@
   --paper: #efe9dd;
   --paper-ink: #191510;
   --paper-dim: #5b5348;
-  --ink: #f2ede3;
-  --ink-dim: rgba(242, 237, 227, 0.75);
-  --ink-faint: rgba(242, 237, 227, 0.54);
+  --ink: #f5f7fa;
+  --ink-dim: rgba(238, 242, 247, 0.84);
+  --ink-faint: rgba(238, 242, 247, 0.62);
   --line: rgba(242, 237, 227, 0.12);
   --line-strong: rgba(242, 237, 227, 0.2);
   --amber: #c9a15f;
@@ -59,10 +59,9 @@ li {
 /* ---- type ---- */
 .font-display {
   font-family: var(--font-serif), serif;
-  font-weight: 372;
-  letter-spacing: -0.026em;
-  line-height: 1.04;
-  font-optical-sizing: auto;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.06;
   text-wrap: balance;
 }
 .eyebrow {
