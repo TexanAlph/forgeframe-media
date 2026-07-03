@@ -10,10 +10,11 @@ const SHOWCASE = [
 ]
 
 const DIFFERENCE = [
-  { bad: "Chases views and likes", good: "Chases booked customers" },
-  { bad: "Posts whatever's trending", good: "Leads with the hook that sells YOUR thing" },
-  { bad: "Looks like everyone else's", good: "Stops the scroll in the first second" },
-  { bad: "You film it, edit it, and quit by week three", good: "Fully done-for-you — you approve, we ship" },
+  { bad: "Chases views and likes", good: "Chases booked customers and calls" },
+  { bad: "Posts whatever's trending that week", good: "Leads with the hook that sells YOUR offer" },
+  { bad: "Cheap, templated, and forgettable", good: "Broadcast-grade production that stops the scroll" },
+  { bad: "Looks like every other local business", good: "Premium quality that matches your price point" },
+  { bad: "You film it, edit it, and quit by week three", good: "Fully done-for-you — you just approve" },
 ]
 
 const SERVICES = [
@@ -188,23 +189,44 @@ export default function Home() {
       </section>
 
       {/* THE DIFFERENCE */}
-      <section className="relative py-16 md:py-24">
-        <div className="mx-auto max-w-4xl px-4">
-          <h2 className="ff-reveal font-display italic text-5xl md:text-7xl text-center mb-12">EVERYONE ELSE VS. <span className="text-[#ff7a2f]">US</span></h2>
-          <div className="ff-reveal ff-glass rounded-2xl overflow-hidden">
-            {DIFFERENCE.map((d, i) => (
-              <div key={d.good} className={`grid grid-cols-1 sm:grid-cols-2 ${i > 0 ? "border-t border-white/10" : ""}`}>
-                <div className="flex items-start gap-3 p-5 text-white/45 sm:border-r sm:border-white/10">
-                  <span className="mt-0.5 text-white/25">✕</span>
-                  <span className="text-sm line-through decoration-white/20">{d.bad}</span>
-                </div>
-                <div className="flex items-start gap-3 p-5">
-                  <Check className="mt-0.5 h-4 w-4 flex-none text-[#ff7a2f]" />
-                  <span className="text-sm font-medium text-white/90">{d.good}</span>
-                </div>
-              </div>
-            ))}
+      <section className="relative py-16 md:py-28">
+        <div className="mx-auto max-w-5xl px-4">
+          <div className="ff-reveal text-center mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full ff-glass px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-[#ff7a2f]">The difference</span>
           </div>
+          <h2 className="ff-reveal font-display italic text-5xl md:text-7xl text-center mb-14">WHY YOURS WILL <span className="text-[#ff7a2f]">ACTUALLY WORK</span></h2>
+          <div className="grid gap-5 md:grid-cols-2 md:items-stretch">
+            {/* THEM */}
+            <div className="ff-reveal flex flex-col rounded-3xl border border-white/10 bg-white/[0.015] p-7 sm:p-9">
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-white/40">The typical content guy</p>
+              <p className="mt-2 font-display italic text-3xl leading-tight text-white/45">$99-a-month<br />spray &amp; pray</p>
+              <ul className="mt-8 space-y-4">
+                {DIFFERENCE.map((d) => (
+                  <li key={d.bad} className="flex items-start gap-3 text-white/45">
+                    <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full border border-white/15 text-[11px] leading-none">✕</span>
+                    <span className="text-[15px] leading-snug">{d.bad}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* US */}
+            <div className="ff-reveal ff-halo ff-glow relative flex flex-col overflow-hidden rounded-3xl border border-[#ff7a2f]/40 bg-gradient-to-b from-[#ff7a2f]/[0.12] via-[#ff7a2f]/[0.03] to-transparent p-7 sm:p-9">
+              <div className="absolute -right-16 -top-16 h-48 w-48 rounded-full bg-[#ff7a2f]/20 blur-3xl" aria-hidden />
+              <p className="relative text-[11px] font-bold uppercase tracking-[0.2em] text-[#ff7a2f]">ForgeFrame</p>
+              <p className="relative mt-2 font-display italic text-3xl leading-tight">Premium,<br />engineered to convert</p>
+              <ul className="relative mt-8 space-y-4">
+                {DIFFERENCE.map((d) => (
+                  <li key={d.good} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-[#ff7a2f] text-black ff-glow"><Check className="h-3 w-3" strokeWidth={3} /></span>
+                    <span className="text-[15px] font-medium leading-snug text-white/95">{d.good}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <p className="ff-reveal mx-auto mt-9 max-w-2xl text-center text-white/60 leading-relaxed">
+            You can see the difference in the first frame: <span className="text-white">broadcast-grade production</span> that makes a $2M listing or a top practice look the part. Our rule — if it isn&rsquo;t good enough to run as a paid ad, we don&rsquo;t ship it.
+          </p>
         </div>
       </section>
 
