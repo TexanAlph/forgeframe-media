@@ -35,7 +35,7 @@ const PLANS = [
     features: ["Posted to Facebook & Instagram", "Hook-first editing", "Content strategy for your offer", "Captions & hashtags"], featured: false },
   { name: "Get Booked", price: "2,900", blurb: "Turn attention into booked clients.", videos: "20 reels / month",
     features: ["Everything in Stay Seen", "Posted to every platform", "Monthly strategy call", "Trending-audio matching", "Your digital-twin talking-head"], featured: true },
-  { name: "Own the Market", price: "3,900", blurb: "Become the obvious choice in your market.", videos: "30 reels / month",
+  { name: "Own the Market", price: "3,700", blurb: "Become the obvious choice in your market.", videos: "30 reels / month",
     features: ["Everything in Get Booked", "Daily posting cadence", "Priority production", "Lead-funnel landing page", "Lower cost per reel than Get Booked"], featured: false },
 ]
 
