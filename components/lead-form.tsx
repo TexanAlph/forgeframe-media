@@ -43,17 +43,17 @@ export function LeadForm() {
   if (status === "done") {
     return (
       <div className="ff-glass rounded-2xl p-8 text-center">
-        <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#ff7a2f] text-black ff-glow">
+        <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--amber)] text-[#0b0a08]">
           <Check className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 font-display italic text-3xl">You&rsquo;re in.</h3>
+        <h3 className="mt-4 font-display text-3xl">You&rsquo;re in.</h3>
         <p className="mt-2 text-white/70">We&rsquo;ll reach out shortly to build your free sample reel. Keep an eye on your phone.</p>
       </div>
     )
   }
 
   const inputClass =
-    "w-full rounded-xl border border-white/12 bg-white/[0.04] px-4 py-3 text-white placeholder:text-white/35 outline-none transition focus:border-[#ff7a2f]/70 focus:bg-white/[0.06]"
+    "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/30 outline-none transition focus:border-[color:var(--amber)] focus:bg-white/[0.05]"
 
   return (
     <form onSubmit={onSubmit} className="ff-glass rounded-2xl p-6 sm:p-8 text-left">
@@ -80,12 +80,12 @@ export function LeadForm() {
         </div>
       </div>
 
-      {status === "error" && <p className="mt-3 text-sm text-[#ff7a2f]">{error}</p>}
+      {status === "error" && <p className="mt-3 text-sm text-[color:var(--amber)]">{error}</p>}
 
       <button
         type="submit"
         disabled={status === "loading"}
-        className="ff-shine mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 font-bold text-black ff-glow transition hover:brightness-105 disabled:opacity-60"
+        className="ff-btn mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 font-bold transition hover:brightness-105 disabled:opacity-60"
       >
         {status === "loading" ? "Sending…" : "Get my free sample reel"}
         {status !== "loading" && <ArrowRight className="h-4 w-4" />}

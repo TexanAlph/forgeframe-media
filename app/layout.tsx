@@ -1,18 +1,20 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Bebas_Neue, Montserrat } from "next/font/google"
+import { Fraunces, Inter } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-const bebasNeue = Bebas_Neue({
-  weight: "400",
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-bebas",
+  variable: "--font-serif",
+  display: "swap",
+  style: ["normal", "italic"],
 })
 
-const montserrat = Montserrat({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-sans",
+  display: "swap",
 })
 
 const siteUrl = "https://www.forgeframe.media"
@@ -142,8 +144,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bebasNeue.variable} ${montserrat.variable} font-sans antialiased`}>
+      <body className={`${fraunces.variable} ${inter.variable} font-sans antialiased`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        <div className="grain" aria-hidden />
         {children}
         <Analytics />
       </body>
