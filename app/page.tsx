@@ -1,50 +1,158 @@
 import Link from "next/link"
-import { Instagram, Check, ArrowRight } from "lucide-react"
+import { Check, ArrowRight, Phone } from "lucide-react"
 import { LeadForm } from "@/components/lead-form"
 
-const SHOWCASE = [
-  { src: "/showcase/roofing.mp4", poster: "/showcase/roofing.jpg", tag: "Home Services", title: "Storm-damage hook that books estimates" },
-  { src: "/showcase/chamoy.mp4", poster: "/showcase/chamoy.jpg", tag: "Local / Food", title: "Crave-bait that drives walk-ins" },
-  { src: "/showcase/peptide.mp4", poster: "/showcase/peptide.jpg", tag: "Health / E-com", title: "Founder talking-head, built from photos" },
+/* ------------------------------------------------------------------ *
+ * TODO before launch (see README.md):
+ *  - PHONE / EMAIL below (currently placeholders, confirm before ship)
+ *  - CALENDLY_URL below
+ *  - Reel videos in the phone frames (currently temporary placeholders —
+ *    swap /showcase/*.mp4 for real HVAC reels: /showcase/hvac-reel-1.mp4 …)
+ *  - Owner photos (none fabricated — add when real assets exist)
+ * ------------------------------------------------------------------ */
+const PHONE = "210-920-4223" // TODO: confirm the HVAC line before launch
+const PHONE_TEL = "+12109204223" // TODO: confirm
+const EMAIL = "hello@forgeframe.media" // TODO: confirm public inbox
+const CALENDLY_URL = "#" // TODO: paste Calendly scheduling URL
+
+// Temporary motion placeholders for the hero phone rack.
+// TODO: replace src/poster with real HVAC reels (e.g. /showcase/hvac-reel-1.mp4).
+const HERO_REELS = [
+  { src: "/showcase/roofing.mp4", poster: "/showcase/roofing.jpg" },
+  { src: "/showcase/peptide.mp4", poster: "/showcase/peptide.jpg" },
+  { src: "/showcase/chamoy.mp4", poster: "/showcase/chamoy.jpg" },
 ]
 
-const MARQUEE = ["Realtors", "Dentists", "Med Spas", "Attorneys", "Plastic Surgeons", "Roofers", "Chiropractors", "Auto Dealers", "Financial Advisors", "Dermatologists", "HVAC", "Mortgage Brokers"]
-
-const DIFFERENCE = [
-  { bad: "Chases views and likes", good: "Chases booked customers and calls" },
-  { bad: "Posts whatever's trending that week", good: "Leads with the hook that sells your offer" },
-  { bad: "Cheap, templated, and forgettable", good: "Broadcast-grade production that stops the scroll" },
-  { bad: "Looks like every other local business", good: "Premium quality that matches your price point" },
-  { bad: "You film it, edit it, and quit by week three", good: "Fully done-for-you — you just approve" },
+const MARQUEE = [
+  "Seasonal know-how",
+  "Straight-talk pricing",
+  "Scam warnings",
+  "Tune-up offers",
+  "Financing spots",
+  "Recruiting reels",
 ]
 
-const SERVICES = [
-  { n: "01", title: "You, on camera — without the camera", body: "We build your digital twin from a few photos and a short voice clip, then put you in daily videos you never had to film. You just approve the script." },
-  { n: "02", title: "Content built to convert", body: "Hook-first product, ASMR, and story edits built on what actually makes a stranger stop, save, and call — not guesswork, and not another trend." },
-  { n: "03", title: "Done-for-you, everywhere", body: "We script, produce, edit, caption, and post to TikTok, Instagram, Facebook, and YouTube. You run your business — we keep you unmissable." },
+const FORGE = [
+  {
+    n: "01",
+    t: "Film once — 2 minutes.",
+    d: "That’s your total on-camera time. Ever. We build your digital spokesperson from it, so every reel features you — without you leaving the truck.",
+  },
+  {
+    n: "02",
+    t: "We forge your content.",
+    d: "12–20 reels a month, built for your service area: seasonal know-how, straight-talk pricing, scam warnings, seasonal offers — even recruiting spots that bring you techs, not just customers.",
+  },
+  {
+    n: "03",
+    t: "Posted everywhere that matters.",
+    d: "Facebook, Instagram, YouTube Shorts, TikTok, and your Google Business Profile. Your customers are 35–65 and they live on Facebook. That’s where we win.",
+  },
+  {
+    n: "04",
+    t: "Winners become ads.",
+    d: "On Growth plans, your best-performing reels get promoted directly into the zip codes you serve — so the content books calls, not just likes.",
+  },
 ]
 
-const STEPS = [
-  { n: "01", t: "Send a few photos + 30 seconds of voice", d: "That's the entire lift on your end. Ever. We handle everything from here." },
-  { n: "02", t: "We produce your batch", d: "A month of scroll-stopping video in your voice, on-brand, built around what gets you called." },
-  { n: "03", t: "We post daily, everywhere", d: "A steady presence across every platform — so you're the name they already know when they need you." },
+const PILLARS = [
+  {
+    tag: "Seasonal urgency",
+    hook: "“3 signs your AC won’t survive August.”",
+    note: "The reels homeowners search for before it breaks.",
+  },
+  {
+    tag: "Straight-talk pricing",
+    hook: "“What a new unit actually costs in 2026 — and when repair beats replace.”",
+    note: "The honest answer that earns the quote.",
+  },
+  {
+    tag: "Scam protection",
+    hook: "“5 lines a shady tech will tell you.”",
+    note: "Positioning you as the honest company in town.",
+  },
+  {
+    tag: "Offers & financing",
+    hook: "Tune-up specials and financing spots that fill the shoulder seasons.",
+    note: "Content that works when the phones go quiet.",
+  },
+  {
+    tag: "Recruiting reels",
+    hook: "Finding techs is as hard as finding leads.",
+    note: "We make the reels that bring you both.",
+  },
 ]
 
 const PLANS = [
-  { name: "Stay Seen", price: "1,500", blurb: "Never disappear from the feed again.", videos: "12 reels / month",
-    features: ["Posted to Facebook & Instagram", "Hook-first editing", "Content strategy for your offer", "Captions & hashtags"], featured: false },
-  { name: "Get Booked", price: "2,900", blurb: "Turn attention into booked clients.", videos: "20 reels / month",
-    features: ["Everything in Stay Seen", "Posted to every platform", "Monthly strategy call", "Trending-audio matching", "Your digital-twin talking-head"], featured: true },
-  { name: "Own the Market", price: "3,700", blurb: "Become the obvious choice in your market.", videos: "30 reels / month",
-    features: ["Everything in Get Booked", "Daily posting cadence", "Priority production", "Lead-funnel landing page", "Lower cost per reel than Get Booked"], featured: false },
+  {
+    name: "Starter",
+    price: "from $1,499",
+    per: "/mo",
+    blurb: "Get seen every week.",
+    features: [
+      "12 reels a month",
+      "Your custom AI spokesperson",
+      "Posting across all 5 platforms",
+      "Monthly content calendar, approved by you",
+    ],
+    cta: "Book a call",
+    featured: false,
+  },
+  {
+    name: "Growth",
+    price: "Book a call",
+    per: " for pricing",
+    blurb: "Turn presence into booked calls.",
+    features: [
+      "20 reels a month",
+      "Everything in Starter",
+      "Winning reels promoted as ads in your zip codes",
+      "Recruiting reels included",
+      "Monthly report: views, calls, cost per lead",
+    ],
+    cta: "Book a call",
+    featured: true,
+  },
+  {
+    name: "Territory Partner",
+    price: "Book a call",
+    per: "",
+    blurb: "Lock your whole service area.",
+    features: [
+      "Everything in Growth",
+      "Hard exclusivity for your full service area",
+      "Priority production & same-week turnarounds",
+    ],
+    cta: "Claim your territory",
+    featured: false,
+  },
 ]
 
 const FAQS = [
-  { q: "Do I have to be on camera?", a: "No. We build a digital twin of you from a few photos and a 30-second voice clip, then produce talking-head videos in your likeness and voice. You never film anything — you just approve the script." },
-  { q: "Will it look cheap or obviously AI?", a: "Watch the work above — that's the bar. If it looks like the slop you've seen, we don't ship it. Production quality is the entire reason we exist." },
-  { q: "Does this actually get customers, or just views?", a: "Views are the vanity metric everyone else sells. We build every video around a hook that makes the right person stop and book — and we measure presence and inbound, not likes." },
-  { q: "Am I locked into a contract?", a: "No. Month-to-month, cancel anytime. We earn the next month with the work, not with a contract." },
-  { q: "What do you actually need from me?", a: "A few photos, a 30-second voice clip, and your offer. That's it. From there it's fully done-for-you: we script, produce, caption, and post." },
+  {
+    q: "Do I have to be on camera?",
+    a: "Once, for about 2 minutes. We build your digital spokesperson from that footage and handle everything else.",
+  },
+  {
+    q: "Is this AI?",
+    a: "Yes — your face, our AI production line. It’s how you get studio-level volume without studio-level cost or time. You approve every reel before it posts.",
+  },
+  {
+    q: "Will this make me go viral?",
+    a: "We don’t sell viral. A million views in Ohio books zero calls in Houston. We build a professional, active presence in front of homeowners in YOUR service area — and put your best content on their phones as ads.",
+  },
+  {
+    q: "Who writes and posts everything?",
+    a: "We do. You get a monthly calendar to approve, then it runs without you.",
+  },
+  {
+    q: "Can my competitor sign up too?",
+    a: "No. One partner per territory. That’s the point.",
+  },
+  {
+    q: "What’s the commitment?",
+    a: "90 days to start, month-to-month after. Presence compounds — quitting in week 3 wastes your money and our work.",
+  },
 ]
 
 const PX = "px-5 sm:px-8 lg:px-12"
@@ -60,11 +168,18 @@ export default function Home() {
             ForgeFrame<span className="amber"> Media</span>
           </Link>
           <nav className="hidden items-center gap-8 text-sm t-dim md:flex">
-            <Link href="#work" className="transition-colors hover:text-[color:var(--ink)]">Work</Link>
-            <Link href="#pricing" className="transition-colors hover:text-[color:var(--ink)]">Pricing</Link>
+            <Link href="#forge" className="transition-colors hover:text-[color:var(--ink)]">
+              How it works
+            </Link>
+            <Link href="#pricing" className="transition-colors hover:text-[color:var(--ink)]">
+              Pricing
+            </Link>
           </nav>
-          <Link href="#contact" className="ff-btn inline-flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm sm:gap-2 sm:px-5">
-            Free reel <ArrowRight className="h-3.5 w-3.5" />
+          <Link
+            href="#contact"
+            className="ff-btn inline-flex shrink-0 items-center gap-1.5 rounded-full px-4 py-2 text-sm sm:gap-2 sm:px-5"
+          >
+            Check territory <ArrowRight className="h-3.5 w-3.5" />
           </Link>
         </div>
       </header>
@@ -72,39 +187,51 @@ export default function Home() {
       {/* HERO */}
       <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 md:pb-24">
         <div className="aurora -left-[10vw] -top-[14vw] h-[46vw] w-[46vw] opacity-40" aria-hidden />
-        <div className={`${MAX} ${PX} relative grid items-center gap-12 lg:grid-cols-[1.05fr_.95fr] lg:gap-16`}>
+        <div className={`${MAX} ${PX} relative grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr] lg:gap-16`}>
           <div>
-            <p className="eyebrow reveal">Short-form video studio · San Antonio</p>
-            <h1 className="font-display reveal mt-7 text-[clamp(2.7rem,7vw,5.4rem)]">
-              Most reels chase views.
-              <br />
-              Ours chase <em className="amber italic">customers.</em>
+            <p className="eyebrow reveal">AI video content for HVAC companies</p>
+            <h1 className="font-display reveal mt-7 text-[clamp(2.5rem,6.4vw,5rem)]">
+              Look like the <em className="amber italic">biggest</em> HVAC company in your service area.
             </h1>
-            <p className="reveal mt-7 max-w-lg text-[17px] leading-[1.65] t-dim">
-              We produce scroll-stopping short-form video — talking-head, product, and hook-driven — built on what actually converts, then post it everywhere. You never touch a camera. You run your business. We make the phone ring.
+            <p className="reveal mt-7 max-w-xl text-[17px] leading-[1.65] t-dim">
+              Homeowners check you out before they ever call. ForgeFrame Media turns 2 minutes of your time into 12–20
+              professional video reels a month — your face, your service area, posted everywhere that matters, running
+              while your trucks roll.
             </p>
             <div className="reveal mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
-              <Link href="#contact" className="ff-btn inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px]">
-                Get a free sample reel <ArrowRight className="h-4 w-4" />
+              <Link
+                href="#contact"
+                className="ff-btn inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px]"
+              >
+                Check if my territory is open <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="#work" className="group inline-flex items-center gap-1.5 text-[15px] t-dim transition-colors hover:text-[color:var(--ink)]">
-                See the work
+              <Link
+                href="#work"
+                className="group inline-flex items-center gap-1.5 text-[15px] t-dim transition-colors hover:text-[color:var(--ink)]"
+              >
+                See sample reels
                 <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
-            <p className="reveal mt-4 text-[13px] t-faint">Free sample of your business · No camera · No contract</p>
+            <p className="reveal mt-4 text-[13px] t-faint">One partner per territory · Now serving the Texas Triangle</p>
           </div>
 
-          {/* hero reel */}
-          <div className="reveal relative mx-auto w-full max-w-[300px] lg:mx-0 lg:ml-auto">
-            <div className="ff-film aspect-[9/16]">
-              <video className="h-full w-full object-cover" src="/showcase/peptide.mp4" poster="/showcase/peptide.jpg" autoPlay muted loop playsInline preload="metadata" />
+          {/* hero phone rack — tilted 9:16 mockups (TODO: real HVAC reels) */}
+          <div id="work" className="reveal relative mx-auto flex w-full max-w-[360px] items-center justify-center gap-3 lg:mx-0 lg:ml-auto">
+            <div className="ff-film aspect-[9/16] w-[42%] -rotate-6 translate-y-4">
+              <video className="h-full w-full object-cover" src={HERO_REELS[0].src} poster={HERO_REELS[0].poster} autoPlay muted loop playsInline preload="metadata" />
+            </div>
+            <div className="ff-film ff-glow relative z-10 aspect-[9/16] w-[46%]">
+              <video className="h-full w-full object-cover" src={HERO_REELS[1].src} poster={HERO_REELS[1].poster} autoPlay muted loop playsInline preload="metadata" />
+            </div>
+            <div className="ff-film aspect-[9/16] w-[42%] rotate-6 translate-y-4">
+              <video className="h-full w-full object-cover" src={HERO_REELS[2].src} poster={HERO_REELS[2].poster} autoPlay muted loop playsInline preload="metadata" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* MARQUEE */}
+      {/* MARQUEE — what we make */}
       <section className="overflow-hidden border-y py-6">
         <div className="ff-marquee font-display text-3xl italic md:text-4xl">
           {[...MARQUEE, ...MARQUEE].map((m, i) => (
@@ -116,122 +243,111 @@ export default function Home() {
         </div>
       </section>
 
-      {/* WORK */}
-      <section id="work" className="py-20 md:py-28">
-        <div className={`${MAX} ${PX}`}>
-          <div className="reveal grid gap-6 border-b pb-10 md:grid-cols-[.9fr_1.1fr] md:items-end">
-            <p className="eyebrow">Selected work</p>
-            <h2 className="font-display text-[clamp(2rem,4.6vw,3.4rem)]">
-              Content that stops the scroll — <span className="t-dim">no crew, no studio days.</span>
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-3">
-            {SHOWCASE.map((v) => (
-              <figure key={v.src} className="reveal">
-                <div className="ff-film mx-auto aspect-[9/16] w-full max-w-[300px]">
-                  <video className="h-full w-full object-cover" src={v.src} poster={v.poster} autoPlay muted loop playsInline preload="metadata" />
-                </div>
-                <figcaption className="mx-auto mt-5 max-w-[300px]">
-                  <span className="eyebrow amber">{v.tag}</span>
-                  <p className="mt-2 text-[15px] leading-snug t-dim">{v.title}</p>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* STATEMENT — light paper section */}
+      {/* PROBLEM — light paper section */}
       <section className="bg-[#efe9dd] text-[#191510]">
         <div className={`${MAX} ${PX} py-24 md:py-36`}>
           <div className="grid gap-10 md:grid-cols-[.5fr_1.5fr] md:gap-16">
-            <p className="eyebrow reveal" style={{ color: "#6b6152" }}>The real problem</p>
+            <p className="eyebrow reveal" style={{ color: "#6b6152" }}>
+              Why your quotes go cold
+            </p>
             <div className="reveal">
               <p className="font-display text-[clamp(1.9rem,4.4vw,3.4rem)] leading-[1.08]">
-                You&rsquo;re not losing to a better business. You&rsquo;re losing to the one that simply
-                <span style={{ color: "#191510" }}> shows up every day.</span>
+                Every homeowner does the same thing before signing your quote.
               </p>
-              <p className="mt-8 max-w-xl text-[16px] leading-[1.7]" style={{ color: "#5b5348" }}>
-                You film something, it flops, and you stop. Meanwhile the guy across town — who isn&rsquo;t better at the work than you — is in the feed every single day. So when someone needs what you both sell, his name is the one they already know. That&rsquo;s not a talent gap. It&rsquo;s a presence gap — and it&rsquo;s costing you the call.
+              <p className="mt-8 max-w-2xl text-[16px] leading-[1.7]" style={{ color: "#5b5348" }}>
+                They look you up. And if they find a dead Facebook page, three posts from 2023, and no face behind the
+                trucks — your quote drops to the bottom of the pile. Meanwhile, the company posting every single week
+                looks like the market leader. Even if you run more trucks than they do.
+              </p>
+              <p className="mt-8 max-w-2xl font-display text-[clamp(1.3rem,2.6vw,1.9rem)] leading-[1.25]">
+                An active, professional presence isn’t marketing fluff. It’s what closes the quote you already gave.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="py-20 md:py-28">
-        <div className={`${MAX} ${PX}`}>
-          <p className="eyebrow reveal">What we do</p>
-          <div className="mt-10 grid gap-px overflow-hidden rounded-2xl border md:grid-cols-3">
-            {SERVICES.map((s) => (
-              <div key={s.n} className="reveal bg-[var(--bg-soft)] p-8 md:p-10">
-                <span className="font-display text-3xl amber">{s.n}</span>
-                <h3 className="font-display mt-5 text-[1.6rem] leading-tight">{s.title}</h3>
-                <p className="mt-3 text-[15px] leading-[1.65] t-dim">{s.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DIFFERENCE */}
-      <section className="py-20 md:py-28">
-        <div className={`${MAX} ${PX}`}>
-          <div className="reveal text-center">
-            <p className="eyebrow">The difference</p>
-            <h2 className="font-display mt-4 text-[clamp(2rem,4.6vw,3.6rem)]">
-              Why yours will <em className="amber italic">actually work.</em>
-            </h2>
-          </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 md:items-stretch">
-            <div className="reveal flex flex-col rounded-2xl border p-8 sm:p-10">
-              <p className="eyebrow t-faint">The typical content guy</p>
-              <p className="font-display mt-3 text-3xl t-faint">$99-a-month spray &amp; pray</p>
-              <ul className="mt-8 space-y-4">
-                {DIFFERENCE.map((d) => (
-                  <li key={d.bad} className="flex items-start gap-3 t-faint">
-                    <span className="mt-1 flex h-5 w-5 flex-none items-center justify-center rounded-full border text-[11px]">✕</span>
-                    <span className="text-[15px] leading-snug">{d.bad}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="reveal ff-glow relative flex flex-col overflow-hidden rounded-2xl border p-8 sm:p-10" style={{ borderColor: "rgba(201,161,95,.4)" }}>
-              <div className="aurora -right-16 -top-20 h-52 w-52 opacity-30" aria-hidden />
-              <p className="eyebrow amber">ForgeFrame</p>
-              <p className="font-display mt-3 text-3xl">Premium, built to convert</p>
-              <ul className="mt-8 space-y-4">
-                {DIFFERENCE.map((d) => (
-                  <li key={d.good} className="flex items-start gap-3">
-                    <span className="mt-1 flex h-5 w-5 flex-none items-center justify-center rounded-full bg-[var(--amber)] text-[#0b0a08]"><Check className="h-3 w-3" strokeWidth={3} /></span>
-                    <span className="text-[15px] leading-snug">{d.good}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <p className="reveal mx-auto mt-9 max-w-2xl text-center text-[15px] leading-[1.7] t-dim">
-            You can see the difference in the first frame: broadcast-grade production that makes a $2M listing or a top practice look the part. Our rule — if it isn&rsquo;t good enough to run as a paid ad, we don&rsquo;t ship it.
-          </p>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="bg-[var(--bg-soft)] py-20 md:py-28">
+      {/* HOW IT WORKS — THE FORGE */}
+      <section id="forge" className="bg-[var(--bg-soft)] py-20 md:py-28">
         <div className={`${MAX} ${PX}`}>
           <div className="reveal grid gap-4 border-b pb-10 md:grid-cols-[.9fr_1.1fr] md:items-end">
-            <p className="eyebrow">How it works</p>
-            <h2 className="font-display text-[clamp(2rem,4.6vw,3.4rem)]">Dead simple on your end.</h2>
+            <p className="eyebrow">The forge</p>
+            <h2 className="font-display text-[clamp(2rem,4.6vw,3.4rem)]">
+              Filmed once. <em className="amber italic">Forged</em> monthly.
+            </h2>
           </div>
-          <div className="mt-12 grid gap-10 md:grid-cols-3">
-            {STEPS.map((s) => (
+          <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {FORGE.map((s) => (
               <div key={s.n} className="reveal">
-                <span className="font-display text-5xl" style={{ color: "rgba(201,161,95,.4)" }}>{s.n}</span>
-                <h3 className="font-display mt-3 text-2xl">{s.t}</h3>
+                <span className="font-display text-5xl" style={{ color: "rgba(201,161,95,.4)" }}>
+                  {s.n}
+                </span>
+                <h3 className="font-display mt-3 text-2xl leading-tight">{s.t}</h3>
                 <p className="mt-3 text-[15px] leading-[1.65] t-dim">{s.d}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHAT WE MAKE — content pillars */}
+      <section className="py-20 md:py-28">
+        <div className={`${MAX} ${PX}`}>
+          <div className="reveal grid gap-4 border-b pb-10 md:grid-cols-[1.1fr_.9fr] md:items-end">
+            <div>
+              <p className="eyebrow">Content that sounds like a contractor, not an agency</p>
+              <h2 className="font-display mt-4 text-[clamp(2rem,4.6vw,3.4rem)]">
+                Built from what homeowners actually search, fear, and share.
+              </h2>
+            </div>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {PILLARS.map((p) => (
+              <div key={p.tag} className="reveal flex flex-col rounded-2xl border bg-[var(--bg-soft)] p-8">
+                <span className="eyebrow amber">{p.tag}</span>
+                <p className="font-display mt-4 text-[1.35rem] leading-tight">{p.hook}</p>
+                <p className="mt-4 text-[14px] leading-[1.6] t-faint">{p.note}</p>
+              </div>
+            ))}
+            {/* Fifth card visually balances the 3-col grid; on lg it fills the empty cell with a soft CTA. */}
+            <div className="reveal ff-glow flex flex-col justify-center rounded-2xl border p-8" style={{ borderColor: "rgba(201,161,95,.4)" }}>
+              <p className="font-display text-[1.5rem] leading-tight">Your face on every one of them.</p>
+              <p className="mt-3 text-[14px] leading-[1.6] t-dim">
+                Every pillar is produced in your likeness and voice — so it all sounds like you, without you filming a thing.
+              </p>
+              <Link href="#contact" className="mt-6 inline-flex items-center gap-1.5 text-[15px] amber">
+                Check territory availability <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* TERRITORY EXCLUSIVITY — dark high-emphasis panel */}
+      <section className="py-8 md:py-14">
+        <div className={`${MAX} ${PX}`}>
+          <div className="reveal relative overflow-hidden rounded-3xl border p-10 sm:p-14 md:p-20" style={{ borderColor: "rgba(201,161,95,.4)", background: "linear-gradient(180deg, var(--bg-soft), #0b0c10)" }}>
+            <div className="aurora -right-16 -top-24 h-72 w-72 opacity-30" aria-hidden />
+            <div className="relative mx-auto max-w-3xl text-center">
+              <p className="eyebrow amber">One partner per territory</p>
+              <h2 className="font-display mt-5 text-[clamp(2rem,5vw,3.8rem)]">
+                When you’re in, your competitors are <em className="amber italic">locked out.</em>
+              </h2>
+              <p className="mx-auto mt-7 max-w-2xl text-[16px] leading-[1.7] t-dim">
+                We cap every service area. If we work with you, we don’t work with the company across town — period.
+                Territories are claimed first-come, and they don’t reopen until a partner leaves.
+              </p>
+              <p className="mt-8 font-display text-[clamp(1rem,2.2vw,1.35rem)]">
+                Now serving the Texas Triangle:{" "}
+                <span className="amber">San Antonio · Austin · Houston · Dallas–Fort Worth</span>
+              </p>
+              <Link
+                href="#contact"
+                className="ff-btn mt-9 inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[15px]"
+              >
+                Check territory availability <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -240,20 +356,27 @@ export default function Home() {
       <section id="pricing" className="py-20 md:py-28">
         <div className={`${MAX} ${PX}`}>
           <div className="reveal text-center">
-            <p className="eyebrow">Simple pricing</p>
-            <h2 className="font-display mt-4 text-[clamp(2rem,4.6vw,3.6rem)]">Month-to-month. Cancel anytime.</h2>
+            <p className="eyebrow">Plans</p>
+            <h2 className="font-display mt-4 text-[clamp(2rem,4.6vw,3.6rem)]">Pick your firepower.</h2>
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-3 md:items-start">
             {PLANS.map((p) => (
-              <div key={p.name} className={`reveal relative flex flex-col rounded-2xl border p-8 ${p.featured ? "ff-halo md:-translate-y-3" : ""}`} style={p.featured ? { borderColor: "rgba(201,161,95,.45)" } : undefined}>
-                {p.featured && <span className="eyebrow absolute -top-3 left-8 rounded-full bg-[var(--amber)] px-3 py-1 text-[10px] text-[#0b0a08]">Recommended</span>}
+              <div
+                key={p.name}
+                className={`reveal relative flex flex-col rounded-2xl border p-8 ${p.featured ? "ff-halo md:-translate-y-3" : ""}`}
+                style={p.featured ? { borderColor: "rgba(201,161,95,.45)" } : undefined}
+              >
+                {p.featured && (
+                  <span className="eyebrow absolute -top-3 left-8 rounded-full bg-[var(--amber)] px-3 py-1 text-[10px] text-[#0b0a08]">
+                    Most booked
+                  </span>
+                )}
                 <h3 className="font-display text-[1.7rem]">{p.name}</h3>
                 <p className="mt-1 text-[14px] t-dim">{p.blurb}</p>
                 <div className="mt-6 flex items-end gap-1">
-                  <span className="font-display text-5xl">${p.price}</span>
-                  <span className="mb-2 text-sm t-faint">/mo</span>
+                  <span className="font-display text-[2.6rem] leading-none">{p.price}</span>
+                  {p.per && <span className="mb-1 text-sm t-faint">{p.per}</span>}
                 </div>
-                <p className="mt-1 text-[14px] font-medium amber">{p.videos}</p>
                 <ul className="mt-7 space-y-3">
                   {p.features.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-[14px] t-dim">
@@ -261,14 +384,17 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <Link href="#contact" className={`mt-8 block rounded-full py-3 text-center text-[15px] font-semibold transition ${p.featured ? "ff-btn" : "ff-btn-ghost"}`}>
-                  Choose {p.name}
+                <Link
+                  href="#contact"
+                  className={`mt-8 block rounded-full py-3 text-center text-[15px] font-semibold transition ${p.featured ? "ff-btn" : "ff-btn-ghost"}`}
+                >
+                  {p.cta}
                 </Link>
               </div>
             ))}
           </div>
           <p className="reveal mx-auto mt-9 max-w-2xl text-center text-[14px] leading-[1.7] t-faint">
-            Each plan starts with a one-time setup from <span className="t-dim">$500</span> — we build your digital twin and dial in your content strategy. Running paid ads? Ad spend is billed separately at cost, never marked up.
+            90-day partnership minimum, month-to-month after. Content compounds — we don’t do one-month experiments.
           </p>
         </div>
       </section>
@@ -294,34 +420,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* ---------------------------------------------------------------- *
+       * TESTIMONIALS — hidden until REAL partner results exist.
+       * Do NOT fabricate quotes, star ratings, logos, or "as seen on".
+       * Unhide (remove `hidden`) and fill with verbatim, permissioned
+       * testimonials only.
+       * ---------------------------------------------------------------- */}
+      <section hidden aria-hidden className="py-20 md:py-28">
+        <div className={`${MAX} ${PX}`}>
+          <p className="eyebrow">What partners say</p>
+          {/* TODO: real testimonials here — name, company, city, verbatim quote. */}
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
       <section id="contact" className="relative overflow-hidden py-24 md:py-32">
         <div className="aurora left-1/2 top-0 h-[42vw] w-[42vw] -translate-x-1/2 opacity-30" aria-hidden />
         <div className={`${MAX} ${PX} relative`}>
           <div className="mx-auto max-w-2xl text-center">
-            <p className="eyebrow reveal">Start free</p>
-            <h2 className="font-display reveal mt-4 text-[clamp(2.4rem,6vw,4.4rem)]">
-              Be the name they <em className="amber italic">already know.</em>
+            <h2 className="font-display reveal text-[clamp(2.4rem,6vw,4.4rem)]">
+              Your territory <em className="amber italic">won’t</em> stay open.
             </h2>
             <p className="reveal mx-auto mt-5 mb-10 max-w-xl text-[16px] leading-[1.65] t-dim">
-              Tell us about your business and we&rsquo;ll build you a free sample reel of it — so you see exactly what your content will look like before you pay a dime.
+              One partner per service area. First come, first forged.
             </p>
           </div>
           <div className="reveal mx-auto max-w-xl">
             <LeadForm />
+
+            {/* Calendly embed — TODO: paste your scheduling URL into CALENDLY_URL */}
+            <div className="mt-6 rounded-2xl border p-6 text-center">
+              <p className="text-[14px] t-dim">Prefer to just grab a time?</p>
+              <Link
+                href={CALENDLY_URL}
+                className="ff-btn-ghost mt-4 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[15px]"
+              >
+                Book a call on Calendly <ArrowRight className="h-4 w-4" />
+              </Link>
+              {/* TODO: replace the button above with a real Calendly inline embed:
+                  <div className="calendly-inline-widget" data-url="CALENDLY_URL" style={{minWidth:'320px',height:'640px'}} /> */}
+            </div>
+
+            <p className="mt-6 text-center text-[15px] t-dim">
+              Or call/text{" "}
+              <a href={`tel:${PHONE_TEL}`} className="amber inline-flex items-center gap-1.5">
+                <Phone className="h-4 w-4" /> {PHONE}
+              </a>
+            </p>
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer className="border-t py-12">
-        <div className={`${MAX} ${PX} flex flex-col items-center justify-between gap-5 sm:flex-row`}>
-          <span className="font-display text-xl">ForgeFrame<span className="amber"> Media</span></span>
-          <div className="flex items-center gap-6 text-sm t-dim">
-            <a href="https://instagram.com" className="inline-flex items-center gap-1.5 transition-colors hover:text-[var(--ink)]"><Instagram className="h-4 w-4" /> Instagram</a>
-            <a href="#contact" className="transition-colors hover:text-[var(--ink)]">Get a free reel</a>
-          </div>
-          <span className="text-[13px] t-faint">© ForgeFrame Media · San Antonio, TX</span>
+        <div className={`${MAX} ${PX} flex flex-col items-center justify-center gap-3 text-center`}>
+          <span className="font-display text-xl">
+            ForgeFrame<span className="amber"> Media</span>
+          </span>
+          <p className="text-[13px] t-faint">
+            San Antonio, TX · Serving the Texas Triangle ·{" "}
+            <a href={`mailto:${EMAIL}`} className="transition-colors hover:text-[var(--ink)]">
+              {EMAIL}
+            </a>{" "}
+            ·{" "}
+            <a href={`tel:${PHONE_TEL}`} className="transition-colors hover:text-[var(--ink)]">
+              {PHONE}
+            </a>
+          </p>
         </div>
       </footer>
     </div>

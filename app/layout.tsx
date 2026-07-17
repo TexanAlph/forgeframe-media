@@ -19,24 +19,24 @@ const inter = Inter({
 
 const siteUrl = "https://www.forgeframe.media"
 const siteName = "ForgeFrame Media"
-const siteTitle = "ForgeFrame Media — Short-Form Video That Books Customers"
+const siteTitle = "ForgeFrame Media — AI Video Content for HVAC Companies | Texas"
 const siteDescription =
-  "ForgeFrame Media is a San Antonio short-form video studio that produces scroll-stopping reels engineered to book customers — not just chase views. Done-for-you AI talking-head, product, and hook-driven video, posted everywhere. No camera. No contract."
+  "ForgeFrame Media turns 2 minutes of your time into 12–20 professional HVAC video reels a month — your face, your service area, posted everywhere that matters. AI-built HVAC video content, HVAC social media, and HVAC marketing across the Texas Triangle. One partner per territory."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: siteTitle,
   description: siteDescription,
   keywords: [
-    "short-form video San Antonio",
-    "reels for local business",
-    "AI talking-head video",
-    "done-for-you social media",
-    "video content that converts",
-    "UGC ads",
-    "social media video studio",
-    "video marketing San Antonio",
-    "TikTok Instagram Reels for business",
+    "HVAC marketing",
+    "HVAC video content",
+    "HVAC social media",
+    "HVAC marketing Texas",
+    "AI video content for HVAC",
+    "HVAC reels",
+    "HVAC lead generation",
+    "HVAC content marketing San Antonio",
+    "HVAC video marketing Texas Triangle",
   ],
   applicationName: siteName,
   authors: [{ name: siteName }],
@@ -73,23 +73,27 @@ export const metadata: Metadata = {
 const faq = [
   {
     q: "Do I have to be on camera?",
-    a: "No. We build a digital twin of you from a few photos and a 30-second voice clip, then produce talking-head videos in your likeness and voice. You never film anything — you just approve the script.",
+    a: "Once, for about 2 minutes. We build your digital spokesperson from that footage and handle everything else.",
   },
   {
-    q: "Will it look cheap or obviously AI?",
-    a: "Production quality is the entire reason we exist. If it looks like low-effort AI slop, we don't ship it.",
+    q: "Is this AI?",
+    a: "Yes — your face, our AI production line. It's how you get studio-level volume without studio-level cost or time. You approve every reel before it posts.",
   },
   {
-    q: "Does this actually get customers, or just views?",
-    a: "We build every video around a hook that makes the right person stop and book, and we measure presence and inbound — not vanity likes.",
+    q: "Will this make me go viral?",
+    a: "We don't sell viral. A million views in Ohio books zero calls in Houston. We build a professional, active presence in front of homeowners in YOUR service area — and put your best content on their phones as ads.",
   },
   {
-    q: "Am I locked into a contract?",
-    a: "No. Month-to-month, cancel anytime. We earn the next month with the work, not with a contract.",
+    q: "Who writes and posts everything?",
+    a: "We do. You get a monthly calendar to approve, then it runs without you.",
   },
   {
-    q: "What do you need from me?",
-    a: "A few photos, a 30-second voice clip, and your offer. From there it's fully done-for-you: we script, produce, caption, and post.",
+    q: "Can my competitor sign up too?",
+    a: "No. One partner per territory. That's the point.",
+  },
+  {
+    q: "What's the commitment?",
+    a: "90 days to start, month-to-month after. Presence compounds — quitting in week 3 wastes your money and our work.",
   },
 ]
 
@@ -105,17 +109,21 @@ const jsonLd = {
       telephone: "+1-210-920-4223",
       areaServed: [
         { "@type": "City", name: "San Antonio" },
-        { "@type": "Country", name: "United States" },
+        { "@type": "City", name: "Austin" },
+        { "@type": "City", name: "Houston" },
+        { "@type": "City", name: "Dallas" },
+        { "@type": "City", name: "Fort Worth" },
+        { "@type": "State", name: "Texas" },
       ],
       address: { "@type": "PostalAddress", addressLocality: "San Antonio", addressRegion: "TX", addressCountry: "US" },
       priceRange: "$$",
       serviceType: [
-        "Short-form video production",
-        "AI talking-head video",
-        "Social media content",
+        "HVAC video content",
+        "HVAC social media marketing",
+        "AI spokesperson video",
         "Done-for-you video posting",
       ],
-      slogan: "Reels that chase customers, not views.",
+      slogan: "Look like the biggest HVAC company in your service area.",
     },
     {
       "@type": "WebSite",

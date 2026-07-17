@@ -15,12 +15,14 @@ export function LeadForm() {
     const fd = new FormData(form)
     const payload = {
       name: String(fd.get("name") || ""),
+      company: String(fd.get("company") || ""),
+      city: String(fd.get("city") || ""),
+      serviceArea: String(fd.get("serviceArea") || ""),
       phone: String(fd.get("phone") || ""),
-      business: String(fd.get("business") || ""),
-      handle: String(fd.get("handle") || ""),
-      message: String(fd.get("message") || ""),
     }
     try {
+      // Wired to the built-in Next.js route (/api/lead → Resend).
+      // TODO: if you'd rather use Formspree, swap this fetch for your Formspree endpoint.
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -46,37 +48,50 @@ export function LeadForm() {
         <div className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-[var(--amber)] text-[#0b0a08]">
           <Check className="h-6 w-6" />
         </div>
-        <h3 className="mt-4 font-display text-3xl">You&rsquo;re in.</h3>
-        <p className="mt-2 text-white/70">We&rsquo;ll reach out shortly to build your free sample reel. Keep an eye on your phone.</p>
+        <h3 className="mt-4 font-display text-3xl">Territory request in.</h3>
+        <p className="mt-2 text-white/70">
+          We&rsquo;ll check if your service area is still open and reach out shortly. Keep an eye on your phone.
+        </p>
       </div>
     )
   }
 
   const inputClass =
     "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white placeholder:text-white/30 outline-none transition focus:border-[color:var(--amber)] focus:bg-white/[0.05]"
+  const labelClass = "mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70"
 
   return (
     <form onSubmit={onSubmit} className="ff-glass rounded-2xl p-6 sm:p-8 text-left">
       <div className="grid gap-3 sm:grid-cols-2">
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Name *</label>
-          <input name="name" required autoComplete="name" placeholder="Your name" className={inputClass} />
+          <label htmlFor="lf-name" className={labelClass}>
+            Name *
+          </label>
+          <input id="lf-name" name="name" required autoComplete="name" placeholder="Your name" className={inputClass} />
         </div>
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Phone *</label>
-          <input name="phone" required type="tel" autoComplete="tel" placeholder="(210) 555-0123" className={inputClass} />
+          <label htmlFor="lf-company" className={labelClass}>
+            Company *
+          </label>
+          <input id="lf-company" name="company" required autoComplete="organization" placeholder="Your HVAC company" className={inputClass} />
         </div>
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Business</label>
-          <input name="business" placeholder="Business name & type" className={inputClass} />
+          <label htmlFor="lf-city" className={labelClass}>
+            City *
+          </label>
+          <input id="lf-city" name="city" required autoComplete="address-level2" placeholder="e.g. San Antonio" className={inputClass} />
         </div>
         <div className="sm:col-span-1">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">Instagram / website</label>
-          <input name="handle" placeholder="@handle or yoursite.com" className={inputClass} />
+          <label htmlFor="lf-phone" className={labelClass}>
+            Phone *
+          </label>
+          <input id="lf-phone" name="phone" required type="tel" autoComplete="tel" placeholder="(210) 555-0123" className={inputClass} />
         </div>
         <div className="sm:col-span-2">
-          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-white/70">What do you want more of?</label>
-          <textarea name="message" rows={3} placeholder="Calls, bookings, walk-ins… tell us the goal (optional)" className={inputClass} />
+          <label htmlFor="lf-area" className={labelClass}>
+            Service area / ZIPs *
+          </label>
+          <input id="lf-area" name="serviceArea" required placeholder="The zips or towns you cover" className={inputClass} />
         </div>
       </div>
 
@@ -87,10 +102,10 @@ export function LeadForm() {
         disabled={status === "loading"}
         className="ff-btn mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 font-bold transition hover:brightness-105 disabled:opacity-60"
       >
-        {status === "loading" ? "Sending…" : "Get my free sample reel"}
+        {status === "loading" ? "Checking…" : "Check availability"}
         {status !== "loading" && <ArrowRight className="h-4 w-4" />}
       </button>
-      <p className="mt-3 text-center text-xs text-white/40">Free sample of your business · No camera required · No contract</p>
+      <p className="mt-3 text-center text-xs text-white/40">One partner per territory · Texas Triangle</p>
     </form>
   )
 }

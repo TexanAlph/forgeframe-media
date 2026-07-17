@@ -56,6 +56,13 @@ li {
   color: #fff;
 }
 
+/* ---- visible keyboard focus (accessibility) ---- */
+:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 /* ---- type ---- */
 .font-display {
   font-family: var(--font-serif), serif;

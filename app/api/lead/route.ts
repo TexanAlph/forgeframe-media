@@ -20,9 +20,9 @@ export async function POST(req: Request) {
 
   const name = (data.name || "").trim()
   const phone = (data.phone || "").trim()
-  const business = (data.business || "").trim()
-  const handle = (data.handle || "").trim()
-  const message = (data.message || "").trim()
+  const company = (data.company || data.business || "").trim()
+  const city = (data.city || "").trim()
+  const serviceArea = (data.serviceArea || "").trim()
 
   if (!name || !phone) {
     return NextResponse.json({ ok: false, error: "Name and phone are required." }, { status: 422 })
@@ -30,21 +30,21 @@ export async function POST(req: Request) {
 
   if (!RESEND_API_KEY) {
     // Don't lose the lead if email isn't configured — log it and still succeed for the user.
-    console.error("[forgeframe lead] RESEND_API_KEY missing. Lead:", { name, phone, business, handle, message })
+    console.error("[forgeframe lead] RESEND_API_KEY missing. Lead:", { name, phone, company, city, serviceArea })
     return NextResponse.json({ ok: true, warning: "logged" })
   }
 
   const rows: [string, string][] = [
     ["Name", name],
+    ["Company", company || "—"],
+    ["City", city || "—"],
+    ["Service area / ZIPs", serviceArea || "—"],
     ["Phone", phone],
-    ["Business", business || "—"],
-    ["Instagram / website", handle || "—"],
-    ["What they need", message || "—"],
   ]
   const html = `
     <div style="font-family:system-ui,sans-serif;max-width:560px">
-      <h2 style="margin:0 0 4px">New ForgeFrame lead 🔥</h2>
-      <p style="color:#666;margin:0 0 16px">They want a free sample reel.</p>
+      <h2 style="margin:0 0 4px">New ForgeFrame HVAC territory request 🔥</h2>
+      <p style="color:#666;margin:0 0 16px">They want to know if their service area is open.</p>
       <table style="border-collapse:collapse;width:100%">
         ${rows
           .map(
@@ -62,7 +62,7 @@ export async function POST(req: Request) {
       body: JSON.stringify({
         from: FROM,
         to: [TO],
-        subject: `New ForgeFrame lead — ${name}${business ? ` (${business})` : ""}`,
+        subject: `New ForgeFrame HVAC lead — ${name}${company ? ` (${company})` : ""}`,
         html,
       }),
     })
