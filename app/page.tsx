@@ -51,7 +51,7 @@ const FORGE = [
   {
     n: "04",
     t: "Winners become ads.",
-    d: "On Growth plans, your best-performing reels get promoted directly into the zip codes you serve — so the content books calls, not just likes.",
+    d: "Add ad promotion and your best-performing reels get pushed directly into the zip codes you serve — so the content books calls, not just likes.",
   },
 ]
 
@@ -62,9 +62,9 @@ const PILLARS = [
     note: "The reels homeowners search for before it breaks.",
   },
   {
-    tag: "Straight-talk pricing",
-    hook: "“What a new unit actually costs in 2026 — and when repair beats replace.”",
-    note: "The honest answer that earns the quote.",
+    tag: "Financing that fits",
+    hook: "“You don’t pay for a new unit all at once — here’s what the monthly actually looks like.”",
+    note: "Turns “I can’t afford that” into a booked install.",
   },
   {
     tag: "Scam protection",
@@ -72,8 +72,8 @@ const PILLARS = [
     note: "Positioning you as the honest company in town.",
   },
   {
-    tag: "Offers & financing",
-    hook: "Tune-up specials and financing spots that fill the shoulder seasons.",
+    tag: "Seasonal offers",
+    hook: "Tune-up specials that fill the slow shoulder seasons.",
     note: "Content that works when the phones go quiet.",
   },
   {
@@ -106,9 +106,7 @@ const PLANS = [
     features: [
       "12 reels a month",
       "Everything in Starter",
-      "Winning reels promoted as ads in your zip codes",
       "Recruiting reels included",
-      "Monthly report: views, calls, cost per lead",
     ],
     cta: "Book a call",
     featured: true,
@@ -195,9 +193,8 @@ export default function Home() {
               Look like the <em className="amber italic">biggest</em> HVAC company in your service area.
             </h1>
             <p className="reveal mt-7 max-w-xl text-[17px] leading-[1.65] t-dim">
-              Homeowners check you out before they ever call. ForgeFrame Media turns 2 minutes of your time into 12–20
-              professional video reels a month — your face, your service area, posted everywhere that matters, running
-              while your trucks roll.
+              ForgeFrame Media turns 2 minutes of your time into 12–20 professional video reels a month — your face,
+              your service area, posted everywhere that matters, running while your trucks roll.
             </p>
             <div className="reveal mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
               <Link
@@ -394,7 +391,14 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="reveal mx-auto mt-9 max-w-2xl text-center text-[14px] leading-[1.7] t-faint">
+          <div className="reveal mx-auto mt-8 max-w-2xl rounded-2xl border p-6 text-center" style={{ borderColor: "rgba(201,161,95,.3)" }}>
+            <p className="eyebrow amber">Add-on · Ad promotion</p>
+            <p className="mt-3 text-[15px] leading-[1.6] t-dim">
+              Put your best-performing reels in front of homeowners in the exact zip codes you serve. You cover the ad
+              spend at cost — never marked up — and we handle the targeting and the creative.
+            </p>
+          </div>
+          <p className="reveal mx-auto mt-8 max-w-2xl text-center text-[14px] leading-[1.7] t-faint">
             90-day partnership minimum, month-to-month after. Content compounds — we don’t do one-month experiments.
           </p>
         </div>
