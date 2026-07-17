@@ -185,12 +185,15 @@ export default function Home() {
 
       {/* HERO */}
       <section className="relative overflow-hidden pt-32 pb-16 sm:pt-40 md:pb-24">
+        <div className="hero-field" aria-hidden />
         <div className="aurora -left-[10vw] -top-[14vw] h-[46vw] w-[46vw] opacity-40" aria-hidden />
         <div className={`${MAX} ${PX} relative grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr] lg:gap-16`}>
           <div>
-            <p className="eyebrow reveal">AI video content for HVAC companies</p>
-            <h1 className="font-display reveal mt-7 text-[clamp(2.5rem,6.4vw,5rem)]">
-              Look like the <em className="amber italic">biggest</em> HVAC company in your service area.
+            <p className="eyebrow reveal inline-flex items-center gap-2.5">
+              <span className="live-dot" aria-hidden /> AI video content for HVAC companies
+            </p>
+            <h1 className="font-display reveal mt-7 text-[clamp(2.25rem,7vw,5.6rem)]">
+              Look like the <em className="hl italic">biggest</em> HVAC company in your service area.
             </h1>
             <p className="reveal mt-7 max-w-xl text-[17px] leading-[1.65] t-dim">
               ForgeFrame Media turns 2 minutes of your time into 12–20 professional video reels a month — your face,
@@ -271,7 +274,7 @@ export default function Home() {
           <div className="reveal grid gap-4 border-b pb-10 md:grid-cols-[.9fr_1.1fr] md:items-end">
             <p className="eyebrow">The forge</p>
             <h2 className="font-display text-[clamp(2rem,4.6vw,3.4rem)]">
-              Filmed once. <em className="amber italic">Forged</em> monthly.
+              Filmed once. <em className="hl italic">Forged</em> monthly.
             </h2>
           </div>
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
@@ -301,14 +304,14 @@ export default function Home() {
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {PILLARS.map((p) => (
-              <div key={p.tag} className="reveal flex flex-col rounded-2xl border bg-[var(--bg-soft)] p-8">
+              <div key={p.tag} className="reveal ff-panel tilt flex flex-col rounded-2xl p-8">
                 <span className="eyebrow amber">{p.tag}</span>
                 <p className="font-display mt-4 text-[1.35rem] leading-tight">{p.hook}</p>
                 <p className="mt-4 text-[14px] leading-[1.6] t-faint">{p.note}</p>
               </div>
             ))}
             {/* Fifth card visually balances the 3-col grid; on lg it fills the empty cell with a soft CTA. */}
-            <div className="reveal ff-glow flex flex-col justify-center rounded-2xl border p-8" style={{ borderColor: "rgba(201,161,95,.4)" }}>
+            <div className="reveal ff-glow tilt flex flex-col justify-center rounded-2xl border p-8" style={{ borderColor: "rgba(201,161,95,.4)" }}>
               <p className="font-display text-[1.5rem] leading-tight">Your face on every one of them.</p>
               <p className="mt-3 text-[14px] leading-[1.6] t-dim">
                 Every pillar is produced in your likeness and voice — so it all sounds like you, without you filming a thing.
@@ -329,7 +332,7 @@ export default function Home() {
             <div className="relative mx-auto max-w-3xl text-center">
               <p className="eyebrow amber">One partner per territory</p>
               <h2 className="font-display mt-5 text-[clamp(2rem,5vw,3.8rem)]">
-                When you’re in, your competitors are <em className="amber italic">locked out.</em>
+                When you’re in, your competitors are <em className="hl italic">locked out.</em>
               </h2>
               <p className="mx-auto mt-7 max-w-2xl text-[16px] leading-[1.7] t-dim">
                 We cap every service area. If we work with you, we don’t work with the company across town — period.
@@ -361,7 +364,7 @@ export default function Home() {
             {PLANS.map((p) => (
               <div
                 key={p.name}
-                className={`reveal relative flex flex-col rounded-2xl border p-8 ${p.featured ? "ff-halo md:-translate-y-3" : ""}`}
+                className={`reveal ff-panel relative flex flex-col rounded-2xl p-8 ${p.featured ? "ff-halo md:-translate-y-3" : "tilt"}`}
                 style={p.featured ? { borderColor: "rgba(201,161,95,.45)" } : undefined}
               >
                 {p.featured && (
@@ -444,7 +447,7 @@ export default function Home() {
         <div className={`${MAX} ${PX} relative`}>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-display reveal text-[clamp(2.4rem,6vw,4.4rem)]">
-              Your territory <em className="amber italic">won’t</em> stay open.
+              Your territory <em className="hl italic">won’t</em> stay open.
             </h2>
             <p className="reveal mx-auto mt-5 mb-10 max-w-xl text-[16px] leading-[1.65] t-dim">
               One partner per service area. First come, first forged.
