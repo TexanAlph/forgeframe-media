@@ -86,11 +86,11 @@ const PILLARS = [
 const PLANS = [
   {
     name: "Starter",
-    price: "from $1,499",
+    price: "$1,599",
     per: "/mo",
     blurb: "Get seen every week.",
     features: [
-      "12 reels a month",
+      "8 reels a month",
       "Your custom AI spokesperson",
       "Posting across all 5 platforms",
       "Monthly content calendar, approved by you",
@@ -100,11 +100,11 @@ const PLANS = [
   },
   {
     name: "Growth",
-    price: "Book a call",
-    per: " for pricing",
+    price: "$2,399",
+    per: "/mo",
     blurb: "Turn presence into booked calls.",
     features: [
-      "20 reels a month",
+      "12 reels a month",
       "Everything in Starter",
       "Winning reels promoted as ads in your zip codes",
       "Recruiting reels included",
@@ -115,10 +115,11 @@ const PLANS = [
   },
   {
     name: "Territory Partner",
-    price: "Book a call",
-    per: "",
+    price: "$3,799",
+    per: "/mo",
     blurb: "Lock your whole service area.",
     features: [
+      "20 reels a month",
       "Everything in Growth",
       "Hard exclusivity for your full service area",
       "Priority production & same-week turnarounds",
